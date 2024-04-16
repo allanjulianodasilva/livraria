@@ -25,3 +25,4 @@ CREATE TABLE usuario (
 );
 
 INSERT INTO usuario (username,senha,isadmin) VALUES ('allan','123',true);
+INSERT INTO usuario (username,senha,isadmin) VALUES ('carlos','123',false);

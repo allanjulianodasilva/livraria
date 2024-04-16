@@ -7,4 +7,6 @@ background-color: aquamarine;
 .table-livro th,
 .table-livro td{
     border: 1px solid black !important;
+    color: firebrick;
+    background-color: lightsteelblue;
 }
