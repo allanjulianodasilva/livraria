@@ -26,10 +26,10 @@
 
     if (!usuarioLogado.isEmpty()) {
         if (isAdmin) {
-         response.sendRedirect("admin.jsp");
+         response.sendRedirect("admin/index.jsp");
         }
         else {
-            response.sendRedirect("index_restrita.jsp");
+            response.sendRedirect("privado/index.jsp");
         }
     } else {
         response.sendRedirect("login.jsp");

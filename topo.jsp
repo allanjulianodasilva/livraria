@@ -3,9 +3,11 @@
 <%@ include file="db_connection.jsp" %>
 
 <%
+Object objeto = request.getSession().getAttribute("usuarioLogado");
+String usuarioLogado = objeto != null ? (String) request.getSession().getAttribute("usuarioLogado") : "";
 
-String usuarioLogado = (String) request.getSession().getAttribute("usuarioLogado");
-boolean isAdmin = (boolean) request.getSession().getAttribute("isAdmin");
+objeto = request.getSession().getAttribute("isAdmin");
+boolean isAdmin = objeto != null ? (boolean) request.getSession().getAttribute("isAdmin") : false ;
 
 if (nivel == 2 && !isAdmin) 
 {
@@ -23,21 +25,30 @@ else {
 <html>
 <head>
     <title>Catálogo de Livros</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/livraria/css/styles.css">
 </head>
 <body>
     <div id="topo">
+        <%
+        if (isAdmin) { %>
+
+
+            <a href="editora/listar.jsp">Editora</a>
+
+
+        <%}%>
+
         <%
         if (!usuarioLogado.isEmpty()) { %>
 
 
         Ola <%=usuarioLogado%>!- 
-        <a href="logout.jsp">Sair</a>
+        <a href="/livraria/logout.jsp">Sair</a>
 
 
         <%}
         else {%>
-        <a href="login.jsp">Login</a>
+        <a href="/livraria/login.jsp">Login</a>
         <%}%>
     </div>
     <h1>Catálogo de Livros</h1>

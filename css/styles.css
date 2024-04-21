@@ -3,9 +3,9 @@
     width: 100%;
 background-color: aquamarine;
 }
-.table-livro,
-.table-livro th,
-.table-livro td{
+table,
+table th,
+table td{
     border: 1px solid black !important;
     color: firebrick;
     background-color: lightsteelblue;

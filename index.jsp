@@ -1,3 +1,4 @@
+<%int nivel = 0;%>
 <%@ include file="topo.jsp" %>
     <%
     String search = request.getParameter("search");
