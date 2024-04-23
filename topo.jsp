@@ -19,6 +19,8 @@ else {
         response.sendRedirect("login.jsp");
     }  
 }
+
+
 %>
 
 <!DOCTYPE html>
@@ -33,7 +35,7 @@ else {
         if (isAdmin) { %>
 
 
-            <a href="editora/listar.jsp">Editora</a>
+            <a href="/livraria/admin/editora/listar.jsp">Editora</a>
 
 
         <%}%>
@@ -52,3 +54,14 @@ else {
         <%}%>
     </div>
     <h1>Catálogo de Livros</h1>
+    <%
+    
+objeto = request.getSession().getAttribute("msg");
+String msg = objeto != null ? (String) request.getSession().getAttribute("msg") : "";
+
+if (!msg.isEmpty()) 
+{
+    out.print(msg);
+}
+session.setAttribute("msg", "");
+    %>

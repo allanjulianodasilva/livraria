@@ -10,21 +10,21 @@
         </tr>
     
     <%
-    String query = "SELECT * FROM editora";
     try {
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(query);
+        String query = "SELECT * FROM editora";
+        Statement pstmt = conn.createStatement();
+        ResultSet rs = pstmt.executeQuery(query);
         while (rs.next()) {
             %>
             <tr>
                 <td><%= rs.getString("nome") %></td>
-                <td><a href="editar.jsp">editar</a></td>
+                <td><a href='editar.jsp?id=<%= rs.getString("id")%>'>editar</a></td>
                 <td><a href='excluir.jsp?id=<%= rs.getString("id")%>'>excluir</a></td>
             </tr>
             <%
         }
         rs.close();
-        stmt.close();
+        pstmt.close();
     } catch (SQLException e) {
         e.printStackTrace();
     }
