@@ -5,7 +5,7 @@
     int id = Integer.valueOf(request.getParameter("id"));
 
     try {
-        String query = "DELETE FROM editora WHERE id = ?";
+        String query = "DELETE FROM livro WHERE id = ?";
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setInt(1, id);
         int i = pstmt.executeUpdate();

@@ -36,6 +36,7 @@ else {
 
 
             <a href="/livraria/admin/editora/listar.jsp">Editora</a>
+            <a href="/livraria/admin/livro/listar.jsp">Livro</a>
 
 
         <%}%>
