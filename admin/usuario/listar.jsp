@@ -1,13 +1,13 @@
 <%int nivel = 2;%>
 <%@ include file="../../topo.jsp" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 
-    <h2>Lista de usuarios</h2><a href="cadastrar.jsp">nova</a>
+    <h2>Lista de usuarios</h2>
     <table class="table-usuario">
         <tr>
             <th>usuario</th>
-            <th>senha</th>
-            <th></th>
-            <th></th>
+            <th>É Admin</th>
+            <th colspan="2"><a href="cadastrar.jsp"><img class="acao" src="/livraria/assets/img/add.png"></a></th>
         </tr>
     
     <%
@@ -18,10 +18,10 @@
         while (rs.next()) {
             %>
             <tr>
-                <td><%= rs.getString("nome") %></td>
-                <td><%= rs.getString("senha") %></td>
-                <td><a href='editar.jsp?id=<%= rs.getString("id")%>'>editar</a></td>
-                <td><a href='excluir.jsp?id=<%= rs.getString("id")%>'>excluir</a></td>
+                <td><%= rs.getString("username") %></td>
+                <td><%= rs.getBoolean("isadmin") ? "Sim" : "Não" %></td>
+                <td class="acao"><a href='editar.jsp?id=<%= rs.getString("id")%>'><img class="acao" src="/livraria/assets/img/edit.png"></a></td>
+                <td class="acao"><a href='excluir.jsp?id=<%= rs.getString("id")%>'><img class="acao" src="/livraria/assets/img/delete.png"></a></td>
             </tr>
             <%
         }

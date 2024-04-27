@@ -4,11 +4,23 @@
 
     <h2>Adicionar usuario</h2>
     <form action="processar_cadastro.jsp" method="post">
-        <label for="nome">usuario :</label>
-        <input type="text" id="nome" name="nome" required><br><br>
-        <input type="submit" value="Adicionar">
-        <label for="nome">seha :</label>
-        <input type="text" id="nome" name="nome" required><br><br>
-        <input type="submit" value="Adicionar">
+        <div class="form_linha">
+            <label for="username">usuario:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form_linha">
+            <label for="senha">senha:</label>
+            <input type="password" id="senha" name="senha" required>
+        </div>
+        <div class="form_linha">
+            <label for="isadmin">É admin:</label>
+            <select name="isadmin">
+                <option value='0'>Não</option>
+                <option value='1'>Sim</option>
+            </select><br>
+        </div>
+        <div class="form_linha">
+            <input type="submit" value="Adicionar">
+        </div>
     </form>
     <%@ include file="../../rodape.jsp" %>

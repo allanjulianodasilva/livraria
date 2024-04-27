@@ -11,5 +11,6 @@
         session.setAttribute("conn", conn);
     } catch (ClassNotFoundException | SQLException e) {
         e.printStackTrace();
+        out.print(e);
     }
 %>

@@ -4,8 +4,9 @@
 
 <%
 
-String usuario= "";
+String username= "";
 String senha = "";
+Boolean isadmin = false;
 
 int id = Integer.valueOf(request.getParameter("id"));
     try {
@@ -17,8 +18,9 @@ int id = Integer.valueOf(request.getParameter("id"));
         
         ResultSet rs = stmt.executeQuery(query);
         if (rs.first()) {
-            usuario = rs.rs.getString("usuario");
+            username = rs.getString("username");
             senha = rs.getString("senha");
+            isadmin = rs.getBoolean("isadmin");
         }
         else {
             out.print("8");
@@ -32,9 +34,24 @@ int id = Integer.valueOf(request.getParameter("id"));
 
     <h2>Editar Editora</h2>
     <form action="processar_editar.jsp" method="post">
-        <label for="nome">Nome da Editora:</label><input type="text" id="nome" name="nome" value='<%=nome%>'' required>
-        <input type="hidden" name="id" value='<%=id%>'' required><br><br>
-
-        <input type="submit" value="Adicionar">
+        <input type="hidden" name="id" value='<%=id%>' required>
+        <div class="form_linha">
+            <label for="username">usuario:</label>
+            <input type="text" id="username" name="username" value='<%=username%>' required>
+        </div>
+        <div class="form_linha">
+            <label for="senha">senha:</label>
+            <input type="password" id="senha" name="senha" value='<%=senha%>' required>
+        </div>
+        <div class="form_linha">
+            <label for="isadmin">É admin:</label>
+            <select name="isadmin">
+                <option value='0' <% if (!isadmin) { %>selected='selected' <%} %>>Não</option>
+                <option value='1' <% if (isadmin) { %>selected='selected' <%} %>>Sim</option>
+            </select><br>
+        </div>
+        <div class="form_linha">
+            <input type="submit" value="Adicionar">
+        </div>
     </form>
     <%@ include file="../../rodape.jsp" %>

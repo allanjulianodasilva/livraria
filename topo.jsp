@@ -27,34 +27,30 @@ else {
 <html>
 <head>
     <title>Catálogo de Livros</title>
-    <link rel="stylesheet" type="text/css" href="/livraria/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/livraria/assets/css/styles.css">
 </head>
 <body>
     <div id="topo">
+        <nav style="float: left;">
         <%
         if (isAdmin) { %>
-
-
-            <a href="/livraria/admin/editora/listar.jsp">Editora</a>
-            <a href="/livraria/admin/livro/listar.jsp">Livro</a>
-
-
+            <a href="/livraria/admin/editora/listar.jsp">Editora</a> | 
+            <a href="/livraria/admin/livro/listar.jsp">Livro</a> | 
+            <a href="/livraria/admin/usuario/listar.jsp">Usuário</a>
         <%}%>
-
-        <%
-        if (!usuarioLogado.isEmpty()) { %>
-
-
-        Ola <%=usuarioLogado%>!- 
-        <a href="/livraria/logout.jsp">Sair</a>
-
-
-        <%}
-        else {%>
-        <a href="/livraria/login.jsp">Login</a>
-        <%}%>
+         </nav>
+         <div class="login" style="float: right;">
+            <%
+                if (!usuarioLogado.isEmpty()) { %>
+                    Ola <%=usuarioLogado%>! | 
+                    <a href="/livraria/logout.jsp"><img class="sair" src="/livraria/assets/img/logout.png"></a>
+            <%}
+            else {%>
+                <a href="/livraria/login.jsp">Login</a>
+            <%}%>
+         </div>
     </div>
-    <h1>Catálogo de Livros</h1>
+    <h1>Catálogo de Livros</h1> 
     <%
     
 objeto = request.getSession().getAttribute("msg");
