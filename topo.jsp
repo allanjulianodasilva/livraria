@@ -11,17 +11,18 @@ boolean isAdmin = objeto != null ? (boolean) request.getSession().getAttribute("
 
 if (nivel == 2 && !isAdmin) 
 {
-    response.sendRedirect("login.jsp");
+    response.sendRedirect("/livraria/login.jsp");
 }
 else {
     if (nivel == 1 && usuarioLogado.isEmpty()) 
     {
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("/livraria/login.jsp");
     }  
 }
 
 
 %>
+
 
 <!DOCTYPE html>
 <html>

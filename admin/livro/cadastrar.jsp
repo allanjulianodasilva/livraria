@@ -34,6 +34,6 @@
     </select><br>
         <label for="foto">Foto:</label>
         <input type="text" id="foto" name="foto" required><br>
-        <input type="submit" value="Adicionar">
+        <input type="submit" value="Salvar">
     </form>
     <%@ include file="../../rodape.jsp" %>

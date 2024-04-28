@@ -31,9 +31,9 @@ int id = Integer.valueOf(request.getParameter("id"));
 
     <h2>Editar Editora</h2>
     <form action="processar_editar.jsp" method="post">
-        <label for="nome">Nome da Editora:</label><input type="text" id="nome" name="nome" value='<%=nome%>'' required>
+        <label for="nome">Nome:</label><input type="text" id="nome" name="nome" value='<%=nome%>'' required>
         <input type="hidden" name="id" value='<%=id%>'' required><br><br>
 
-        <input type="submit" value="Adicionar">
+        <input type="submit" value="Salvar">
     </form>
     <%@ include file="../../rodape.jsp" %>

@@ -55,7 +55,8 @@ int id = Integer.valueOf(request.getParameter("id"));
             while (rs.next()) {
                 int editora_id = Integer.valueOf(rs.getString("id"));
                 %>
-                <option value='<%= rs.getString("id") %>' <% editora_id == editora ? 'selected' : 'selected' %> ><%= rs.getString("nome") %></option>
+                <option value='<%= rs.getString("id") %>' 
+                    <% if (editora_id == editora) { %>selected='selected' <%} %> ><%= rs.getString("nome") %></option>
                 <%
             }
             rs.close();
@@ -69,6 +70,6 @@ int id = Integer.valueOf(request.getParameter("id"));
         <label for="foto">Foto:</label>
         <input type="text" id="foto" name="foto" value='<%=foto%>'' required><br>
 
-        <input type="submit" value="Adicionar">
+        <input type="submit" value="Salvar">
     </form>
     <%@ include file="../../rodape.jsp" %>

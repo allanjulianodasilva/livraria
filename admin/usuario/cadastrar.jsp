@@ -20,7 +20,7 @@
             </select><br>
         </div>
         <div class="form_linha">
-            <input type="submit" value="Adicionar">
+            <input type="submit" value="Salvar">
         </div>
     </form>
     <%@ include file="../../rodape.jsp" %>
