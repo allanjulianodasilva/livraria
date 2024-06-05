@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ include file="../topo.jsp" %>
 
-    <h2>Lista de livros</h2><a href="cadastrar.jsp">nova</a>
+    <h2>Lista de livros</h2>
     <table class="table-livro">
         <tr>
             <th>Título</th>

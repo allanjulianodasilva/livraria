@@ -1,11 +1,10 @@
 <%@ include file="../topo.jsp" %>
 
-    <h2>Listado de Editoras</h2><a href="cadastrar.jsp">nova</a>
+    <h2>Listado de Editoras</h2>
     <table class="table-livro">
         <tr>
             <th>nome</th>
-            <th></th>
-            <th></th>
+            <th colspan="2"><a href="cadastrar.jsp"><img class="acao" src="/livraria/assets/img/add.png"></a></th>
         </tr>
     
     <%
@@ -17,8 +16,19 @@
             %>
             <tr>
                 <td><%= rs.getString("nome") %></td>
-                <td><a href='editar.jsp?id=<%= rs.getString("id")%>'>editar</a></td>
-                <td><a href='excluir.jsp?id=<%= rs.getString("id")%>'>excluir</a></td>
+            </td>
+            <td class="acao">
+                <a href='editar.jsp?id=<%= rs.getString("id")%>'>
+                    <img class="acao" src="/livraria/assets/img/edit.png">
+                </a>
+            </td>
+            <td>
+                <a 
+                    href="#" 
+                    onclick="confirmacao('<%= rs.getString("id")%>')">
+                        <img class="acao" src="/livraria/assets/img/delete.png">
+                </a>
+            </td>
             </tr>
             <%
         }
