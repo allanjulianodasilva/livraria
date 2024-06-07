@@ -56,6 +56,7 @@ table th {
 
 table td.acao {
     text-align: center;
+    width: 50px;
 }
 
 .form_linha{

@@ -32,7 +32,7 @@
                         <img class="acao" src="/livraria/assets/img/edit.png">
                     </a>
                 </td>
-                <td>
+                <td class="acao">
                     <a 
                         href="#" 
                         onclick="confirmacao('<%= rs.getString("id")%>')">

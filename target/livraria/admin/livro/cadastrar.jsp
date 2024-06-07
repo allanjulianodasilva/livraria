@@ -28,7 +28,7 @@
             %>
         </select><br>
         <label for="foto">Foto:</label>
-        <input type="file" name="file[]" /><br>
+        <input type="file" name="file[]" required /><br>
         <input type="submit" value="Salvar">
     </form>
 <%@ include file="../../rodape.jsp" %>
