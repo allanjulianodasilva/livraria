@@ -21,38 +21,35 @@ public class Upload {
     private boolean folderUploadIsAbsolute = false;
     private String folderUpload;
     private List<String> files;
-    Map<String,String> form ;
-
+    Map<String, String> form;
 
     public List<String> getFiles() {
         return files;
     }
-   
+
     public Map getForm() {
         return form;
     }
-    
-   
-   public Upload()
-   {
-       this.folderUpload = "upload";
-       files = new ArrayList<String>();
-   }
+
+    public Upload() {
+        this.folderUpload = "upload";
+        files = new ArrayList<String>();
+    }
 
     public boolean formProcess(ServletContext sc, HttpServletRequest request) {
-        this.form = new HashMap<String,String>();
-        Map<String, String> itemForm; 
-        
+        this.form = new HashMap<String, String>();
+        Map<String, String> itemForm;
+
         File file;
         int maxFileSize = 5000 * 1024;
         int maxMemSize = 5000 * 1024;
-        String filePath = sc.getRealPath("//"+this.folderUpload);
+        String filePath = sc.getRealPath("//" + this.folderUpload);
         if (folderUploadIsAbsolute) {
             filePath = this.folderUpload;
         }
-        System.out.println(filePath);
+        ;
         boolean ret;
-        String contentType = request.getContentType(); 
+        String contentType = request.getContentType();
         if ((contentType.indexOf("multipart/form-data") >= 0)) {
 
             DiskFileItemFactory factory = new DiskFileItemFactory();
@@ -63,7 +60,7 @@ public class Upload {
             try {
                 List fileItems = upload.parseRequest(request);
                 Iterator i = fileItems.iterator();
-                
+
                 while (i.hasNext()) {
                     FileItem fi = (FileItem) i.next();
                     if (!fi.isFormField()) {
@@ -73,31 +70,30 @@ public class Upload {
                             boolean isInMemory = fi.isInMemory();
                             long sizeInBytes = fi.getSize();
                             String name = new Date().getTime() + ".png";// + fileName;
-                            
+
                             file = new File(filePath + "/" + name);
                             fi.write(file);
                             files.add(name);
                             form.put("img", name);
                         }
-                    }
-                    else
-                    {
-                         
-                         form.put(fi.getFieldName(), fi.getString());
-                        
+                    } else {
+
+                        form.put(fi.getFieldName(), fi.getString());
+
                     }
                 }
                 ret = true;
-               
+
             } catch (Exception ex) {
                 System.out.println(ex);
                 ret = false;
             }
         } else {
-           ret = false;
+            ret = false;
         }
         return ret;
     }
+
     public boolean getFolderUploadIsAbsolute() {
         return folderUploadIsAbsolute;
     }
